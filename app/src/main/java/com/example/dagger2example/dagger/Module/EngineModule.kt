@@ -7,21 +7,23 @@ import dagger.Binds
 
 import dagger.Module;
 import dagger.Provides;
-import javax.inject.ActivityScope
-import javax.inject.ApplicationScope
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.android.scopes.ActivityScoped
 import javax.inject.Named
 
 @Module
+@InstallIn(ActivityComponent::class)
 abstract class EngineModule {
 
     @Binds
     @Named("ElectEngine")
-    @ActivityScope
+    @ActivityScoped
     abstract fun provideElectEngine(electEngine: ElectEngine) : Engine
 
 
     @Binds
     @Named("HorseEngine")
-    @ActivityScope
+    @ActivityScoped
     abstract fun provideHorseEngine(horseEngine: HorseEngine) : Engine
 }
