@@ -7,12 +7,11 @@ import com.example.dagger2example.Model.Car
 import com.example.dagger2example.Model.Driver.Driver
 import com.example.dagger2example.Model.Wheel.Wheel
 import com.example.dagger2example.R
-import com.example.dagger2example.application.CarApplication
-import com.example.dagger2example.dagger.Component.DaggerAppComponent
-import javax.inject.ApplicationScope
+import dagger.hilt.android.AndroidEntryPoint
 
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     @Inject lateinit var car : Car
     @Inject lateinit var driver : Driver
@@ -21,14 +20,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
-        (application as CarApplication).getAppComponent()
-            .getCarComponentBuilder()
-            .brightLight(10)
-            .horsePower(10)
-            .build()
-            .inject(this)
 
         Log.d("TAG", "onCreate: " + car)
         Log.d("TAG", "onCreate: " + wheel)    //Same car.wheel object because both in ActivityScope

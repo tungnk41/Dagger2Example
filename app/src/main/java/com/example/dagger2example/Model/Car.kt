@@ -6,7 +6,6 @@ import com.example.dagger2example.Model.Engine.Engine
 import com.example.dagger2example.Model.Light.Light
 import com.example.dagger2example.Model.Remote.Remote
 import com.example.dagger2example.Model.Wheel.Wheel
-import javax.inject.ActivityScope
 import javax.inject.Inject
 import javax.inject.Named
 

@@ -1,5 +1,9 @@
 package com.example.dagger2example.Model.Light
 
-interface Light {
-    fun getInfo()
+abstract class Light {
+    var brightLight = 0
+
+    abstract fun getInfo()
+
+
 }

@@ -8,15 +8,17 @@ import com.example.dagger2example.Model.Wheel.Wheel
 
 import dagger.Module
 import dagger.Provides
-import javax.inject.ActivityScope
-import javax.inject.ApplicationScope
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.android.scopes.ActivityScoped
 import javax.inject.Named
 
 @Module
+@InstallIn(ActivityComponent::class)
 class CarModule {
 
     @Provides
-    @ActivityScope
+    @ActivityScoped
     fun provideCar(@Named("ElectEngine") engine : Engine, wheel : Wheel, driver : Driver, @Named("BlueLight")light : Light) : Car {
         return Car (engine,wheel,driver,light)
     }

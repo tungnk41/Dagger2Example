@@ -6,24 +6,26 @@ import com.example.dagger2example.Model.Light.RedLight
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
-import javax.inject.ActivityScope
-import javax.inject.ApplicationScope
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.android.scopes.ActivityScoped
 import javax.inject.Named
 
 @Module
+@InstallIn(ActivityComponent::class)
 class LightModule {
 
     @Provides
     @Named("RedLight")
-    @ActivityScope
-    fun provideRedLight(@Named("brightLight") brightLight : Int) : Light {
-        return RedLight(brightLight)
+    @ActivityScoped
+    fun provideRedLight() : Light {
+        return RedLight()
     }
 
     @Provides
     @Named("BlueLight")
-    @ActivityScope
-    fun provideBlueLight(@Named("brightLight") brightLight : Int) : Light {
-        return BlueLight(brightLight)
+    @ActivityScoped
+    fun provideBlueLight() : Light {
+        return BlueLight()
     }
 }
