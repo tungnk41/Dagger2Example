@@ -11,5 +11,6 @@ import javax.inject.ApplicationScope
 class WheelModule {
 
     @Provides
+    @ActivityScope
     fun provideWheel() = Wheel()
 }
