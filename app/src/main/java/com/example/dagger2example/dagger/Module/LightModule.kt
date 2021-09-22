@@ -15,12 +15,14 @@ class LightModule {
 
     @Provides
     @Named("RedLight")
+    @ActivityScope
     fun provideRedLight(@Named("brightLight") brightLight : Int) : Light {
         return RedLight(brightLight)
     }
 
     @Provides
     @Named("BlueLight")
+    @ActivityScope
     fun provideBlueLight(@Named("brightLight") brightLight : Int) : Light {
         return BlueLight(brightLight)
     }

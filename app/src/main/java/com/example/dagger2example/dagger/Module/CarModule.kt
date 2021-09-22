@@ -16,6 +16,7 @@ import javax.inject.Named
 class CarModule {
 
     @Provides
+    @ActivityScope
     fun provideCar(@Named("ElectEngine") engine : Engine, wheel : Wheel, driver : Driver, @Named("BlueLight")light : Light) : Car {
         return Car (engine,wheel,driver,light)
     }

@@ -16,10 +16,12 @@ abstract class EngineModule {
 
     @Binds
     @Named("ElectEngine")
+    @ActivityScope
     abstract fun provideElectEngine(electEngine: ElectEngine) : Engine
 
 
     @Binds
     @Named("HorseEngine")
+    @ActivityScope
     abstract fun provideHorseEngine(horseEngine: HorseEngine) : Engine
 }

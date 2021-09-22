@@ -10,21 +10,18 @@ import javax.inject.ApplicationScope
 import javax.inject.Named
 
 @ActivityScope
-@Component(dependencies = [AppComponent::class],modules = [EngineModule::class, WheelModule::class, LightModule::class, CarModule::class])
+@Subcomponent(modules = [EngineModule::class, WheelModule::class, LightModule::class, CarModule::class])
 interface CarComponent {
-
 
     fun inject(activity: MainActivity)
 
-    @Component.Builder
+    @Subcomponent.Builder
     interface Builder {
         @BindsInstance
         fun brightLight(@Named("brightLight")brightLight : Int) : Builder
 
         @BindsInstance
         fun horsePower(@Named("horsePower")horsePower : Int) : Builder
-
-        fun appComponent(component: AppComponent) : Builder
 
         fun build() : CarComponent
     }

@@ -2,6 +2,7 @@ package com.example.dagger2example.application
 
 import android.app.Application
 import com.example.dagger2example.dagger.Component.AppComponent
+import com.example.dagger2example.dagger.Component.CarComponent
 import com.example.dagger2example.dagger.Component.DaggerAppComponent
 
 class CarApplication : Application() {
@@ -21,4 +22,5 @@ class CarApplication : Application() {
     fun getAppComponent() : AppComponent{
         return component
     }
+
 }
